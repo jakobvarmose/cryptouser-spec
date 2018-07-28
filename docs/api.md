@@ -16,7 +16,7 @@ Check if this server supports the CryptoUser API.
 
 ### POST /.well-known/cryptouser/create_user
 
-Request: `{ username, saltinfo, access_key, protected }`
+Request: `{ username, saltinfo, access_key, ciphertext }`
 
 Successful response: `{}`
 
@@ -34,21 +34,21 @@ Error response: `{ error }`
 
 Read saltinfo in order to log in.
 
-### POST /.well-known/cryptouser/get_protected
+### POST /.well-known/cryptouser/get_ciphertext
 
 Request: `{ username }`
 
 Authorization: `access_key`
 
-Successful Response: `{ protected }`
+Successful Response: `{ ciphertext }`
 
 Error response: `{ error }`
 
-Read protected data when logging in.
+Read ciphertext data when logging in.
 
 ### POST /.well-known/cryptouser/update_user
 
-Request: `{ username, saltinfo, access_key, protected }`
+Request: `{ username, saltinfo, access_key, ciphertext }`
 
 Authorization: `access_key`
 
@@ -56,7 +56,7 @@ Successful response: `{}`
 
 Error response: `{ error }`
 
-Update keys, saltinfo and protected data.
+Update keys, saltinfo and ciphertext.
 
 ### POST /.well-known/cryptouser/delete_user
 
